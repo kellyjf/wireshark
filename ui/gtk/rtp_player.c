@@ -552,6 +552,12 @@ decode_rtp_packet(rtp_packet_t *rp, SAMPLE **out_buff, GHashTable *decoders_hash
 		break;
 #endif /* HAVE_G729_G723 */
 
+	case PT_L16_MONO:
+		tmp_buff = (SAMPLE *)g_malloc(rp->info->info_payload_len);
+		memcpy(tmp_buff, rp->payload_data, rp->info->info_payload_len);
+		decoded_bytes=rp->info->info_payload_len;
+		break;
+
 	default:
 		/*
 		 * XXX - return an error here, so the user gets told that
@@ -576,6 +582,7 @@ update_progress_bar(gfloat fraction)
 	while (gtk_events_pending())
 		gtk_main_iteration();
 }
+
 
 /****************************************************************************/
 /* Decode the RTP streams and add them to the RTP channels struct

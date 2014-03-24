@@ -328,7 +328,7 @@ static const key_value clock_map[] = {
 	{PT_PCMA,       8000},
 	{PT_G722,       8000},
 	{PT_L16_STEREO, 44100},
-	{PT_L16_MONO,   44100},
+	{PT_L16_MONO,   8000},
 	{PT_QCELP,      8000},
 	{PT_CN,         8000},
 	{PT_MPA,        90000},
